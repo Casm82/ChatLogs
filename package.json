@@ -1,0 +1,27 @@
+{
+  "name": "chatlog",
+  "version": "0.0.1",
+  "description": "Просмотр журнала конференций Openfire",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Casm82/chatlog"
+  },
+  "keywords": [
+    "nagios"
+  ],
+  "author": "Aleksandr Makhnev",
+  "license": "GPL v2",
+  "bugs": {
+    "url": "https://github.com/Casm82/nagios/issues"
+  },
+  "homepage": "https://github.com/Casm82/chatlog",
+  "dependencies": {
+    "mongoose": "3.x",
+    "express": "3.x",
+    "jade": "1.x",
+  }
+}

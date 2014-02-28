@@ -1,0 +1,12 @@
+body {
+    color: black;
+    font-family: arial,verdana,serif;
+    font-weight: normal;
+    font-size: 1em;
+	padding: 2em;
+}
+
+.selector
+{
+	padding: 0 0 0 1em;
+}
