@@ -8,6 +8,7 @@ block content
   - if (messages.length) {
       table
         th №
+        th Комната
         th Логин/Ресурс
         th Ник в конференции
         th Время сообщения
@@ -27,11 +28,18 @@ block content
           - var msgDateStr = day + "-" + month + "-" + year
           - var msgTimeStr = hour + "ч " + min + "м " + sec + "с"
 
+          - var jid = message.sender.split("@",1)
+
           - if (key%2) {
               tr.even
                  td= key
-                 td= message.sender
-                 td= message.nickname
+                 td= reqID.room
+                 td
+                     a(href="/searchByJid?jid=" + jid)
+                       = message.sender
+                 td
+                     a(href="/searchByNick?nick=" + message.nickname)
+                       = message.nickname
                  td
                     div= msgDateStr
                     div= msgTimeStr
@@ -39,8 +47,13 @@ block content
           - } else {
               tr.odd
                  td= key
-                 td= message.sender
-                 td= message.nickname
+                 td= reqID.room
+                 td
+                     a(href="/searchByJid?jid=" + jid)
+                       = message.sender
+                 td
+                     a(href="/searchByNick?nick=" + message.nickname)
+                       = message.nickname
                  td
                     div= msgDateStr
                     div= msgTimeStr

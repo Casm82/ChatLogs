@@ -36,6 +36,21 @@ block content
          b Конференция
       span.selector
         - rooms.forEach(function(room) {
-            input(form="rooms", type="submit" name="room" value=room.name)
+            input(form="rooms" type="submit" name="room" value=room.name)
         - })
+
+      form#nick(method="GET", action="/searchByNick")
+      p
+         b Поиск по нику
+      input(form="nick" type="text" name="nick" placeholder="Введите ник пользователя")
+      div
+          input(form="nick" type="submit")
+
+      form#jid(method="GET", action="/searchByJid")
+      p
+         b Поиск по Jabber ID
+      input(form="jid" type="text" name="jid" placeholder="Введите JabberID пользователя")
+      div
+          input(form="jid" type="submit")
+
   -}

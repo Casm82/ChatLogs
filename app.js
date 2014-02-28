@@ -1,5 +1,5 @@
 var express = require('express'),
-	mongoose = require('mongoose'),
+//	mongoose = require('mongoose'),
 //	models = require('./models'),
 	http = require('http'),
 	path = require('path'),
@@ -25,12 +25,16 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+/*
 // Подключаемся к MongoDB
 mongoose.connect("mongodb://localhost/chatlogs", function (err) {
 	if (err) throw err;
 	routes(app);
 });		// <--- mongoose.connect()
 
+*/
+
+routes(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on http://localhost:' + app.get('port'));

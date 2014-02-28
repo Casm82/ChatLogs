@@ -17,7 +17,7 @@ function getLog(connection, res, body)
 	connection.query(logSQL, function(err, rows, fields)
 		{
 			if (err) throw err;
-			res.render('printLog',
+			res.render('printConf',
 			  {	title: "Журнал конференции " + body.room +" сервера Openfire",
 				reqID: body,
 			    messages: rows

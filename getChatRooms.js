@@ -57,7 +57,7 @@ function getChatRooms(connection, res){
 		{
 			if (err) throw err;
 			res.render('index',
-			  {	title: "Просмотр журнала конференций сервера Openfire",
+			  {	title: "Просмотр журналов конференций сервера Openfire",
 			    rooms:		rows,
 
 				sdays:		sdaysArray,
