@@ -1,8 +1,12 @@
-var express = require('express'),
-//	mysql = require("mysql"),
-	app = express();
+// Функция ищет комнаты в БД Openfire
+// и отображает страницу с параметрами поиска
+function getChatRooms(connection, res){
 
-var timeNow = new Date(),
+	var express = require('express'),
+//	mysql = require("mysql"),
+		app = express();
+
+	var timeNow = new Date(),
 	dayNow = timeNow.getDate(),
 	monthNow = timeNow.getMonth(),
 	yearNow = timeNow.getFullYear(),
@@ -49,9 +53,6 @@ var edaysArray   = timeRange("days", dayNow),
 	ehoursArray  = timeRange("hours", hourNow),
 	eminsArray   = timeRange("mins", minNow);
 
-// Функция ищет комнаты в БД Openfire
-// и отображает страницу с параметрами поиска
-function getChatRooms(connection, res){
 	var roomsSQL = "SELECT roomID,name FROM openfire.ofmucroom;";
 	connection.query(roomsSQL, function(err, rows, fields)
 		{
