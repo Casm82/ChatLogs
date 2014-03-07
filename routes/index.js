@@ -6,10 +6,10 @@ var getChatRooms = require("../getChatRooms"),
 
 module.exports = function(app) {
 	var connection = mysql.createConnection({
-		host:		"172.10.1.16",
+		host:		"127.0.0.1",
 		database:	"openfire",
 		user:		"chatlog",
-		password:	"[bcnjhbCvjnh"
+		password:	"password"
 		});
 
 	connection.connect();
