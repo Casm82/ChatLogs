@@ -1,18 +1,9 @@
 var getChatRooms = require("../getChatRooms"),
     getLog = require("../getLog"),
     searchByNick = require("../searchByNick"),
-    searchByJid = require("../searchByJid"),
-	mysql = require("mysql");
+    searchByJid = require("../searchByJid");
 
-module.exports = function(app) {
-	var connection = mysql.createConnection({
-		host:		"127.0.0.1",
-		database:	"openfire",
-		user:		"chatlog",
-		password:	"password"
-		});
-
-	connection.connect();
+module.exports = function(connection, app) {
 
 	app.get('/', function(req, res) {
 		getChatRooms(connection, res);
