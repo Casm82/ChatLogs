@@ -3,9 +3,11 @@ block css
   link(rel='stylesheet', href='/styles/index.css')
 
 block content
-  h1 Добро пожаловать!
-  h2 Выберите конференцию для просмотра журнала сообщений
   - if (rooms.length) {
+    hgroup
+      h1 Добро пожаловать!
+      h2 Выберите конференцию для просмотра журнала сообщений
+    section
       form#rooms(method="POST", action="/getLog")
 
       mixin selectTime(dateObj)
@@ -39,17 +41,19 @@ block content
             input(form="rooms" type="submit" name="room" value=room.name)
         - })
 
+    section
       form#nick(method="GET", action="/searchByNick")
       p
          b Поиск по нику
-      input(form="nick" type="text" name="nick" placeholder="Введите ник пользователя")
+      input(form="nick" type="search" name="nick" placeholder="Введите ник пользователя")
       div
           input(form="nick" type="submit")
 
+    section
       form#jid(method="GET", action="/searchByJid")
       p
-         b Поиск по Jabber ID
-      input(form="jid" type="text" name="jid" placeholder="Введите JabberID пользователя")
+         b Поиск по Jabber ID (доменному имени)
+      input(form="jid" type="search" name="jid" placeholder="Введите JabberID пользователя")
       div
           input(form="jid" type="submit")
 

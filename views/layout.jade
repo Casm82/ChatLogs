@@ -2,9 +2,13 @@ doctype html
 html
   head
     title= title
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='/styles/header.css')
     block css
   body
-    include header
-    block scripts
+    header
+      include header
+      block scripts
     block content
-    include footer
+    footer
+      include footer

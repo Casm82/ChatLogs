@@ -3,15 +3,24 @@ body {
     font-family: arial,verdana,serif;
     font-weight: normal;
     font-size: 1em;
-	padding: 2.25em;
+    padding: 2.5em;
 }
 
+h1
+{
+    font-size: 1.5em;
+}
+
+h2
+{
+    font-size: 1.25em;
+}
 .selector
 {
 	padding: 0 0 0 1em;
 }
 
-#nick,#jid
+section
 {
-	padding: 3em 0 0 0;
+	padding: 2em 0 0 0;
 }

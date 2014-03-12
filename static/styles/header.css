@@ -1,12 +1,9 @@
-a { font-weight: bolder; }
-
 a:hover
 {
-	font-family: arial;
 	color: #1fae02;
 }
 
-div.main
+nav
 {
 	padding: 1em 0 1em 2em;
 	position: fixed;
@@ -25,10 +22,12 @@ form.actions
 	display: inline;
 }
 
-p.footer
+footer
 {
-	position: absolute;
-	right: 1em;
+	margin: 1em;
+	position: relative;
+	text-align: right;
+	font-size: 0.85em;
 }
 
 #avgTimeIdleDiv
