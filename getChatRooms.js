@@ -1,6 +1,6 @@
 // Функция ищет комнаты в БД Openfire
 // и отображает страницу с параметрами поиска
-function getChatRooms(connection, res){
+function getChatRooms(connection, res, lang){
 
 	var express = require('express'),
 //	mysql = require("mysql"),
@@ -57,7 +57,7 @@ var edaysArray   = timeRange("days", dayNow),
 	connection.query(roomsSQL, function(err, rows, fields)
 		{
 			if (err) throw err;
-			res.render('index',
+			res.render(lang + '/index',
 			  {	title: "Просмотр журналов конференций сервера Openfire",
 			    rooms:		rows,
 

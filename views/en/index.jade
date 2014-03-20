@@ -1,0 +1,59 @@
+extends layout
+block css
+  link(rel='stylesheet', href='/styles/index.css')
+
+block content
+  - if (rooms.length) {
+    h1 Welcome!
+    section
+       form#rooms(method="POST", action="/getLog")
+         fieldset
+           legend
+             strong Select group chat room button to view log
+           mixin selectTime(dateObj)
+             span.selector= dateObj.desc
+             select(form="rooms", name=dateObj.param)
+                 - each day in dateObj.dateArray
+                   option= day
+           p
+             b Search from date:
+           span.selector
+            +selectTime({desc: "Day",    param: "sday",   dateArray: sdays})
+            +selectTime({desc: "Month",  param: "smonth", dateArray: smonths})
+            +selectTime({desc: "Year",   param: "syear",  dateArray: syears})
+            +selectTime({desc: "Hour",   param: "shour",  dateArray: shours})
+            +selectTime({desc: "Minutes",param: "smin",   dateArray: smins})
+           p
+              b Search to date:
+           span.selector
+            +selectTime({desc: "Day",   param: "eday",   dateArray: edays})
+            +selectTime({desc: "Month", param: "emonth", dateArray: emonths})
+            +selectTime({desc: "Year",  param: "eyear",  dateArray: eyears})
+            +selectTime({desc: "Hour",  param: "ehour",  dateArray: ehours})
+            +selectTime({desc: "Minutes",param: "emin",   dateArray: emins})
+           p
+              b Group Chat Rooms
+           span.selector
+             - rooms.forEach(function(room) {
+                 input(form="rooms" type="submit" name="room" value=room.name)
+             - })
+
+    section
+      form#nick(method="GET", action="/searchByNick")
+        fieldset
+          legend
+            strong Search by nickname
+          input(form="nick" type="search" name="nick" placeholder="Input here user nickname" required accesskey="s" size="25")
+          div
+            input(form="nick" type="submit")
+
+     section
+       form#jid(method="GET", action="/searchByJid")
+        fieldset
+          legend
+            strong Search by Jabber ID
+          input(form="jid" type="search" name="jid" placeholder="Input here user jid" required accesskey="j" maxlength="6" size="25")
+          div
+            input(form="jid" type="submit")
+
+  -}

@@ -25,10 +25,10 @@ if ('development' == app.get('env')) {
 }
 
 var db_config = {
-	host:		"172.16.1.1",
+	host:		"172.10.1.16",
 	database:	"openfire",
 	user:		"chatlog",
-	password:	"password"
+	password:	"[bcnjhbCvjnh"
 	};
 
 var connection;

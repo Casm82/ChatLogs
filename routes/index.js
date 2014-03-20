@@ -3,22 +3,27 @@ var getChatRooms = require("../getChatRooms"),
     searchByNick = require("../searchByNick"),
     searchByJid = require("../searchByJid");
 
+function detectLang(req){
+	var lang = req.headers["accept-language"].slice(0,2);
+	if ( lang == "ru" ) { return "ru" } else { return "en" };
+};
+
 module.exports = function(connection, app) {
 
 	app.get('/', function(req, res) {
-		getChatRooms(connection, res);
+		getChatRooms(connection, res, detectLang(req));
 	});
 
 	app.post('/getLog', function(req, res) {
-		getLog(connection, res, req.body);
+		getLog(connection, res, req.body, detectLang(req));
 	});
 
 	app.get('/searchByNick', function(req, res) {
-		searchByNick(connection, res, req.query);
+		searchByNick(connection, res, req.query, detectLang(req));
 	});
 
 	app.get('/searchByJid', function(req, res) {
-		searchByJid(connection, res, req.query);
+		searchByJid(connection, res, req.query, detectLang(req));
 	});
 
 };		// <--- app()

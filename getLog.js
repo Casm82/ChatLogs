@@ -1,4 +1,4 @@
-function getLog(connection, res, body)
+function getLog(connection, res, body, lang)
 {
 	var start = {hour: body.shour, min: body.smin,
 				 day: body.sday, month: body.smonth-1, year: body.syear};
@@ -17,8 +17,15 @@ function getLog(connection, res, body)
 	connection.query(logSQL, function(err, rows, fields)
 		{
 			if (err) throw err;
-			res.render('printConf',
-			  {	title: "Журнал конференции " + body.room +" сервера Openfire",
+
+			if (lang == "ru") {
+				var title = "Журнал конференции " + body.room +" сервера Openfire";
+			} else {
+				var title = "Group Chat Room " + body.room + " log";
+			};
+
+			res.render(lang + '/printConf',
+			  {	title: title,
 				reqID: body,
 			    messages: rows
 			  });

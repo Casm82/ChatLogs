@@ -1,4 +1,4 @@
-function searchByNick(connection, res, body)
+function searchByNick(connection, res, body, lang)
 {
 	var logSQL= "SELECT room.name, muc.sender,muc.nickname,muc.logTime,muc.body " +
 				"FROM openfire.ofmucconversationlog muc, " +
@@ -10,9 +10,16 @@ function searchByNick(connection, res, body)
 	connection.query(logSQL, [body.nick], function(err, rows, fields)
 		{
 			if (err) throw err;
-			res.render('printUser',
-			  {	title: "Сообщения пользователя с ником " + body.nick +" сервера Openfire",
-				reqID: body,
+
+			if (lang == "ru") {
+				var title = "Сообщения пользователя с ником " + body.nick +" сервера Openfire";
+			} else {
+				var title = "Messages user " + body.nick;
+			};
+
+			res.render(lang + '/printUser',
+			  {	title:	title,
+				reqID:	body,
 			    messages: rows
 			  });
 		});

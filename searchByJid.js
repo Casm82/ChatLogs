@@ -1,4 +1,4 @@
-function searchByJid(connection, res, body)
+function searchByJid(connection, res, body, lang)
 {
 	var logSQL= "SELECT room.name, muc.sender,muc.nickname,muc.logTime,muc.body " +
 				"FROM openfire.ofmucconversationlog muc, " +
@@ -10,8 +10,15 @@ function searchByJid(connection, res, body)
 	connection.query(logSQL, [body.jid + "%"], function(err, rows, fields)
 		{
 			if (err) throw err;
-			res.render('printUser',
-			  {	title: "Сообщения пользователя с ником " + body.nick +" сервера Openfire",
+
+			if (lang == "ru") {
+				var title = "Сообщения пользователя с jid " + body.jid +" сервера Openfire";
+			} else {
+				var title = "Messages user " + body.jid;
+			};
+			
+			res.render(lang + '/printUser',
+			  {	title: title,
 				reqID: body,
 			    messages: rows
 			  });
