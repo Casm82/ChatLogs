@@ -1,6 +1,6 @@
 {
   "name": "chatlog",
-  "version": "0.0.1",
+  "version": "0.0.9",
   "description": "Просмотр журнала конференций Openfire",
   "main": "app.js",
   "scripts": {
