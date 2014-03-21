@@ -29,33 +29,17 @@ block content
 
           - var jid = message.sender.split("@",1)
 
-          - if (key%2) {
-              tr.even
-                 td= key
-                 td= message.name
-                 td
-                     a(href="/searchByJid?jid=" + jid)
-                       = message.sender
-                 td
-                     a(href="/searchByNick?nick=" + message.nickname)
-                       = message.nickname
-                 td
-                    div= msgDateStr
-                    div= msgTimeStr
-                 td= message.body
-          - } else {
-              tr.odd
-                 td= key
-                 td= message.name
-                 td
-                     a(href="/searchByJid?jid=" + jid)
-                       = message.sender
-                 td
-                     a(href="/searchByNick?nick=" + message.nickname)
-                       = message.nickname
-                 td
-                    div= msgDateStr
-                    div= msgTimeStr
-                 td= message.body
-          - }
+          tr.log
+             td= key
+             td= message.name
+             td
+                 a(href="/searchByJid?jid=" + jid)
+                   = message.sender
+             td
+                 a(href="/searchByNick?nick=" + message.nickname)
+                   = message.nickname
+             td
+                div= msgDateStr
+                div= msgTimeStr
+             td= message.body
   -}

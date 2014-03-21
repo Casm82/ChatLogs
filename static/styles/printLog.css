@@ -23,12 +23,12 @@ th,td
 	padding: 0.25em;
 }
 
-tr.odd
+tr.log:nth-child(odd)
 {
 	background:	#CCE8CC;
 }
 
-tr.even
+tr.log:nth-child(even)
 {
 	background:	#E7E7E7;
 }
