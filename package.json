@@ -1,6 +1,6 @@
 {
   "name": "chatlog",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Просмотр журнала конференций Openfire",
   "main": "app.js",
   "scripts": {
@@ -21,7 +21,8 @@
   "homepage": "https://github.com/Casm82/chatlog",
   "dependencies": {
     "mongoose": "3.x",
-    "express": "3.x",
+    "express": "4.x",
+    "express-middlewares": "0.x",
     "jade": "1.x",
     "mysql": "2.x"
   }

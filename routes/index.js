@@ -11,6 +11,7 @@ function detectLang(req){
 module.exports = function(connection, app) {
 
 	app.get('/', function(req, res) {
+	console.log("Connected client: %s", req.ip);
 		getChatRooms(connection, res, detectLang(req));
 	});
 

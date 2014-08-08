@@ -51,8 +51,8 @@ block content
        form#jid(method="GET", action="/searchByJid")
         fieldset
           legend
-            strong Поиск по Jabber ID
-          input(form="jid" type="search" name="jid" placeholder="Введите JabberID пользователя" required accesskey="j" size="25")
+            strong Поиск по Jabber ID (доменному имени)
+          input(form="jid" type="search" name="jid" placeholder="Введите JabberID пользователя" required accesskey="j" maxlength="6" size="25")
           div
             input(form="jid" type="submit")
 

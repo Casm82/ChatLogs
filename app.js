@@ -1,4 +1,6 @@
 var express = require('express'),
+	expressMiddlewares = require('express-middlewares'),
+	methodOverride= require('method-override'),
 	http = require('http'),
 	path = require('path'),
 	routes = require('./routes'),
@@ -10,22 +12,13 @@ app.set('port', process.env.PORT || 3010);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.set('x-powered-by', false);
-app.use(express.favicon());
-//app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(app.router);
+app.use(expressMiddlewares.favicon());
+app.use(expressMiddlewares.bodyParser());
+app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'static')));
 
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
-
 var db_config = {
-	host:		"127.0.0.1",
+	host:		"db.mysql.local",
 	database:	"openfire",
 	user:		"chatlog",
 	password:	"password"
